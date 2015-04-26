@@ -21,4 +21,4 @@ Track name length is limited to 256 chars, misc info length is limited to 16 cha
 
 
 ### Server side ###
-Server side is written with help of Qt as it have fancy QSerialPort class. It fetches infromation from [AIMP](http://aimp.ru) media player and sends metadata to hardware via COM port according to protocol above. It uses [QAimpInfo](https://bitbucket.org/identsoft/qaimpinfo) class to fetch metadata from media player. Unfortunately it's bound to Windows because AIMP runs only on this operating system.
+Server side is written with help of Qt as it have fancy QSerialPort class. It fetches infromation from [AIMP](http://aimp.ru) media player and sends metadata to hardware via COM port according to protocol above. It uses [QAimpInfo](https://bitbucket.org/identsoft/qaimpinfo/src) class to fetch metadata from media player. Unfortunately it's bound to Windows because AIMP runs only on this operating system.
