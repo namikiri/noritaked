@@ -1,6 +1,13 @@
 #ifndef QAIMPINFO_H
 #define QAIMPINFO_H
 
+/*
+
+	QAimpInfo ~ AIMP Current Track metadata fetcher for Qt
+	     by IDENT Software :: http://identsoft.org
+
+*/
+
 #include <QObject>
 #include <windows.h>
 #include <qmath.h>

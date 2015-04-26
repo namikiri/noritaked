@@ -1,6 +1,14 @@
 #ifndef NORITAKEDAEMON_H
 #define NORITAKEDAEMON_H
 
+/*
+
+	Noritake Display Daemon Server Side
+	by IDENT Software ~ http://identsoft.org
+
+*/
+
+
 #include <QObject>
 #include <iostream>
 #include <QTimer>

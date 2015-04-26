@@ -1,5 +1,12 @@
 #include "noritakedaemon.h"
 
+/*
+
+	Noritake Display Daemon Server Side
+	by IDENT Software ~ http://identsoft.org
+
+*/
+
 NoritakeDaemon::NoritakeDaemon(QObject *parent) : QObject(parent)
 {
     log ("Noritake Itron Display Server daemon v0.2\n");
@@ -9,7 +16,8 @@ NoritakeDaemon::NoritakeDaemon(QObject *parent) : QObject(parent)
     miscVariant = 0;
 
     com = new QSerialPort(this);
-    //com->setPortName("COM8");
+	
+	// These settings are default for Arduino
     com->setBaudRate(9600);
     com->setParity(QSerialPort::NoParity);
     com->setStopBits(QSerialPort::OneStop);
@@ -82,7 +90,8 @@ void NoritakeDaemon::comReadyRead()
     for (int i = 0; i < buff.length(); i++)
     {
         short int ch = buff.at(i);
-
+		
+		// Parsing Noritake's signals. See header file.
         switch (ch)
         {
             case SIG_INIT_OK :
@@ -107,7 +116,7 @@ void NoritakeDaemon::comReadyRead()
                 log ("Length of the string is corrected to right value.\n", true);
                 break;
 
-            default :
+            default : // lol wtf
                 log ("Unknown HW command code: "+QString::number(ch, 16)+"h\n");
         }
     }
@@ -156,6 +165,5 @@ void NoritakeDaemon::checkTrack()
         miscVariant = 1;
     else
         miscVariant++;
-
 }
 

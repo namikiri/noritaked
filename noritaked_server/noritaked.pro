@@ -4,6 +4,12 @@
 #
 #-------------------------------------------------
 
+#
+#	Noritake Display Daemon Server Side
+#	by IDENT Software ~ http://identsoft.org
+#
+
+
 QT       += core serialport
 
 QT       -= gui

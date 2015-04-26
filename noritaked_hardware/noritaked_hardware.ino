@@ -2,27 +2,38 @@
 #include <CUU_Parallel_M68.h>
 #include <Noritake_VFD_CUU.h>
 
-#define TRACK_FREEZE_TIME 3000
-#define TRACK_MARQUEE_DELAY 50
+/*
 
+	Noritake NowPlaying firmware for Arduino and Noritake VFD.
+	        by IDENT Software ~ http://identsoft.org
+
+*/
+
+// Timer settings
+#define TRACK_FREEZE_TIME 3000
+#define TRACK_MARQUEE_DELAY 100
+
+// Protocol specifications
 #define SER_TRACK_START 0x01
 #define SER_TRACK_STOP 0x02
 #define SER_MISC_START 0x03
 #define SER_MISC_STOP 0x04
 
+// Responses to be sent to server side
 #define SIG_INIT_OK 0x01
 #define SIG_TRACK_UPDATED 0x02
 #define SIG_MISC_UPDATED 0x03
 #define SIG_BAD_SEQUENCE 0x04
 #define SIG_LEN_EXCEEDED 0x05
 
+// Limitations
 #define MAX_TRACK_LEN 256
 #define MAX_MISC_LEN 16
 
 
 
 
-
+// Only this method worked for me
 CUU_Parallel_M68_4bit interface(9, 10, 11, 4, 5, 6, 7); //RS,WR,RD,D4-D7
 Noritake_VFD_CUU vfd;
 
@@ -173,6 +184,7 @@ void loop() {
     lastTrack = track;
     totalOffsetAvailable = track.length() - 16;
     currentOffset = 0;
+	
     // Show initial track and freeze it for TRACK_FREEZE_TIME
     track.substring(currentOffset, currentOffset + 16);
     vfd.CUU_setCursor(0, 0);
@@ -257,10 +269,7 @@ void loop() {
       }
     }
 
-    delay (100);
     vfd.CUU_setCursor(0, 0);
     vfd.print(currentTrackSS.c_str());
   }
-
-
 }

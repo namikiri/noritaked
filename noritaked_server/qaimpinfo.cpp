@@ -1,5 +1,12 @@
 #include "qaimpinfo.h"
 
+/*
+
+	QAimpInfo ~ AIMP Current Track metadata fetcher for Qt
+	     by IDENT Software :: http://identsoft.org
+
+*/
+
 QAimpInfo::QAimpInfo(QObject *parent) : QObject(parent)
 {
 
