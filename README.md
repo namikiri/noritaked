@@ -17,7 +17,7 @@ To set the misc info, send this:
 \x03228kbps @ 44kHz\x04
 ```
 
-Track name length is limited to 256 chars, misc info length is limited to 16 chars.
+Track name length is limited to 256 chars, misc info length is limited to 16 chars. If the sequence is broken, a special signal will be sent. See `noritaked_hardware.ino` for constants specifying signals sent by Arduino.
 
 
 ### Server side ###
